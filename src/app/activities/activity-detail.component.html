@@ -1,0 +1,72 @@
+<div class="card">
+  <div class="card-header"
+       *ngIf="activity">
+    {{pageTitle + ": " + activity.activityName}}
+  </div>
+
+  <div class="card-body"
+       *ngIf="activity">
+
+    <div class="row">
+
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col-md-3">Name:</div>
+          <div class="col-md-6">{{activity.activityName}}</div>
+        </div>
+        <div class="row">
+          <div class="col-md-3">Code:</div>
+          <div class="col-md-6">{{activity.activityAge}}</div>
+        </div>
+        <div class="row">
+          <div class="col-md-3">Description:</div>
+          <div class="col-md-6">{{activity.description}}</div>
+        </div>
+        <div class="row">
+          <div class="col-md-3">Skill Development:</div>
+          <div class="col-md-6">{{activity.skillDevelopment}}</div>
+        </div>
+        <div class="row">
+          <div class="col-md-3">5 Star Rating:</div>
+          <div class="col-md-6">
+            <pm-star [rating]="activity.starRating">
+            </pm-star>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-3">Tags:</div>
+          <div class="col-md-6">{{activity.tags}}</div>
+        </div>
+      </div>
+
+      <div class="col-md-4"
+           *ngIf="activity.imageUrl">
+        <img class="center-block img-responsive"
+             [style.height.px]="150"
+             [style.margin.px]="2"
+             [src]="activity.imageUrl"
+             [title]="activity.activityName">
+      </div>
+    </div>
+
+    <div class="row mt-4">
+      <div class="col-md-4">
+        <button class="btn btn-outline-secondary mr-3"
+                style="width:80px"
+                (click)="onBack()">
+          <i class="fa fa-chevron-left"></i> Back
+        </button>
+        <button class="btn btn-outline-primary"
+                style="width:80px"
+                [routerLink]="['/activities', activity.id, 'edit']">
+          Edit
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="alert alert-danger"
+       *ngIf="errorMessage">{{errorMessage}}
+  </div>
+</div>
