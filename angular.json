@@ -120,6 +120,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "ChildrenGames"
+    }
+  },
+  "defaultProject": "ChildrenGames",
+  "cli": {
+    "analytics": false
+  }
 }
